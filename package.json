@@ -1,5 +1,5 @@
 {
-  "name": "multi-range-slider",
+  "name": "@spreadtheweb/multi-range-slider",
   "version": "1.0.0",
   "description": "Simple, small and fast vanilla JavaScript multi range slider without dependencies, with ability to have multiple values and points to slide",
   "browser": "dist/range-slider.main.min.js",
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/spreadtheweb/multi-range-slider.git"
   },
   "keywords": [ "range", "slider", "rangeslider", "rangeslider.js", "browser", "vanilla", "multi", "without dependencies"],
-  "author": "",
+  "author": "spreadtheweb22@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/spreadtheweb/multi-range-slider/issues"
