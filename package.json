@@ -1,0 +1,46 @@
+{
+  "name": "multi-range-slider",
+  "version": "1.0.0",
+  "description": "Simple, small and fast vanilla JavaScript multi range slider without dependencies, with ability to have multiple values and points to slide",
+  "browser": "dist/range-slider.main.min.js",
+  "module": "dist/range-slider.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "npm run dev && npm run prod && npm run bundle",
+    "bundle": "webpack --env development --env bundle",
+    "dev": "webpack --env development && webpack --env development --env withCSS",
+    "prod": "webpack --env production && webpack --env production --env withCSS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spreadtheweb/multi-range-slider.git"
+  },
+  "keywords": [ "range", "slider", "rangeslider", "rangeslider.js", "browser", "vanilla", "multi", "without dependencies"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spreadtheweb/multi-range-slider/issues"
+  },
+  "homepage": "https://github.com/spreadtheweb/multi-range-slider",
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "prettier": "2.6.2",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
