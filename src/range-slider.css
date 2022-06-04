@@ -1,12 +1,6 @@
-body {
-    padding: 100px;
-    background-color: #17043D;
-}
-
 .range-slider__container{ 
     margin-bottom: 100px;
 }
-
 
 .range-slider__container{
     position: relative;
