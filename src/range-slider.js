@@ -26,7 +26,8 @@ export default class RangeSlider {
             },
             pointRadius: 15,
             railHeight: 5,
-            trackHeight: 5
+            trackHeight: 5,
+            tooltipHandler: null
         };
 
         this.allProps = {
@@ -250,9 +251,12 @@ export default class RangeSlider {
 
         this.tooltip.style.left =
             this.pointPositions[this.selectedPointIndex] + "px";
-        this.tooltip.textContent = this.allProps.values[
-            this.selectedPointIndex
-        ];
+
+        let content = this.allProps.values[this.selectedPointIndex];
+        if (this.allProps.tooltipHandler !== null) {
+            content = this.allProps.tooltipHandler(content);
+        }
+        this.tooltip.textContent = content;
     }
 
     /**
@@ -355,7 +359,12 @@ export default class RangeSlider {
         }
         this.tooltip.style.transform = "translate(-50%, -60%) scale(1)";
         this.tooltip.style.left = this.pointPositions[index] + "px";
-        this.tooltip.textContent = this.allProps.values[index];
+
+        let content = this.allProps.values[index];
+        if (this.allProps.tooltipHandler !== null) {
+            content = this.allProps.tooltipHandler(content);
+        }
+        this.tooltip.textContent = content;
     }
 
     /**
