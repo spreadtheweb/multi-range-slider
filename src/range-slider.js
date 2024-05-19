@@ -110,7 +110,7 @@ export default class RangeSlider {
      * @param  {string} selector
      */
     initContainer(selector) {
-        const container = document.querySelector(selector);
+        const container = (selector instanceof HTMLElement ? selector : document.querySelector(selector));
         container.classList.add("range-slider__container");
 
         container.style.height = this.allProps.pointRadius * 2 + "px";
