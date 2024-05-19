@@ -396,7 +396,8 @@ export default class RangeSlider {
      * Get mouse position relatively from containers left position on the page
      */
     getMouseRelativePosition(pageX) {
-        return pageX - this.container.offsetLeft;
+        const containerPosition = this.container.getBoundingClientRect();
+        return pageX - containerPosition.left;
     }
 
     /**
