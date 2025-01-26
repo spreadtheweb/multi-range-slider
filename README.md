@@ -43,6 +43,26 @@ Or you can use it directly in your html:
 </body>
 ```
 
+## Tooltip Handler
+Use the `tooltipHandler` function to modify the content displayed on the tooltip.
+```
+<head>
+    ...
+    <script src="https://unpkg.com/@spreadtheweb/multi-range-slider@1.0.2/dist/range-slider.main.min.js"></script>
+</head>
+<body>
+    <div class="slider"></div>
+
+    <script>
+        let slider = new RangeSlider('.slider', {
+            tooltipHandler: function (content) {
+                return '$ ' + content
+            }
+        })
+    </script>
+</body>
+```
+
 ## Options
 | Property      | Type | Default | Description |
 | ----------- | ----------- | ----------- | ----------- |
@@ -54,6 +74,7 @@ Or you can use it directly in your html:
 | pointRadius   | number        | 15 | radius of point in px |
 | railHeight   | number        | 5 | height of rail in px |
 | trackHeight   | number        | 5 | height of track in px |
+| tooltipHandler   | function        | null | function to modify the content of the tooltip |
 
 ## Methods
 | Method name    |   Usage | Usage |
