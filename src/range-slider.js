@@ -111,7 +111,7 @@ export default class RangeSlider {
      * @param  {string} selector
      */
     initContainer(selector) {
-        const container = document.querySelector(selector);
+        const container = (selector instanceof HTMLElement ? selector : document.querySelector(selector));
         container.classList.add("range-slider__container");
 
         container.style.height = this.allProps.pointRadius * 2 + "px";
@@ -405,7 +405,8 @@ export default class RangeSlider {
      * Get mouse position relatively from containers left position on the page
      */
     getMouseRelativePosition(pageX) {
-        return pageX - this.container.offsetLeft;
+        const containerPosition = this.container.getBoundingClientRect();
+        return pageX - containerPosition.left;
     }
 
     /**
