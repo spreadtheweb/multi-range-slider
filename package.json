@@ -1,6 +1,6 @@
 {
   "name": "@spreadtheweb/multi-range-slider",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Simple, small and fast vanilla JavaScript multi range slider without dependencies, with ability to have multiple values and points to slide",
   "browser": "dist/range-slider.main.min.js",
   "module": "dist/range-slider.min.js",
