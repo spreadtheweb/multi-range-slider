@@ -7,6 +7,8 @@
 
 import "./range-slider.css";
 
+const containerClass = "range-slider__container";
+
 export default class RangeSlider {
     /**
      * Create slider
@@ -71,7 +73,7 @@ export default class RangeSlider {
      * Draw all elements with initial positions
      */
     drawScene() {
-        this.container.classList.add("range-slider__container");
+        this.container.classList.add(containerClass);
         this.container.appendChild(this.rail);
         this.container.appendChild(this.tooltip);
 
@@ -419,5 +421,13 @@ export default class RangeSlider {
         this.changeHandlers.push(func);
         return this;
     }
+
+    /**
+     * Destroy instance
+     */
     destroy() {
+        // Reverse changes from initContainer
+        this.container.classList.remove(containerClass);
+        this.container.style.height = null;
+    }
 }
