@@ -81,7 +81,7 @@ export default class RangeSlider {
 
     generatePointPositions() {
         return this.allProps.values.map(value => {
-            var percentage = ((value - _this2.allProps.min) / (_this2.allProps.max - _this2.allProps.min)) * 100;
+            var percentage = ((value - this.allProps.min) / (this.allProps.max - this.allProps.min)) * 100;
             return Math.floor((percentage / 100) * this.container.offsetWidth);
         });
     }
