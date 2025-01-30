@@ -429,10 +429,12 @@ export default class RangeSlider {
         // Reverse changes from initContainer
         this.container.classList.remove(containerClass);
         this.container.style.height = null;
+        this.container = null;
 
         // Reverse changes from initRail
         if (this.rail instanceof HTMLElement) {
             this.rail.remove();
+            this.rail = null;
         }
 
         // Reverse changes from initTracks
@@ -440,11 +442,13 @@ export default class RangeSlider {
             this.tracks.forEach((track) => {
                 track.remove();
             });
+            this.tracks = [];
         }
 
         // Reverse changes from initTooltip
         if (this.tooltip instanceof HTMLElement) {
             this.tooltip.remove();
+            this.tooltip = null;
         }
 
         // Reverse changes from initPoints
@@ -452,6 +456,7 @@ export default class RangeSlider {
             this.points.forEach((point) => {
                 point.remove();
             });
+            this.points = [];
         }
 
         // Reverse changes from pointClickHandler
