@@ -441,5 +441,10 @@ export default class RangeSlider {
                 track.remove();
             });
         }
+
+        // Reverse changes from initTooltip
+        if (this.tooltip instanceof HTMLElement) {
+            this.tooltip.remove();
+        }
     }
 }
