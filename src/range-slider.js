@@ -419,4 +419,5 @@ export default class RangeSlider {
         this.changeHandlers.push(func);
         return this;
     }
+    destroy() {
 }
