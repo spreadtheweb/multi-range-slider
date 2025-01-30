@@ -434,5 +434,12 @@ export default class RangeSlider {
         if (this.rail instanceof HTMLElement) {
             this.rail.remove();
         }
+
+        // Reverse changes from initTracks
+        if (Array.isArray(this.tracks)) {
+            this.tracks.forEach((track) => {
+                track.remove();
+            });
+        }
     }
 }
