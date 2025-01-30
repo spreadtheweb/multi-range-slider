@@ -453,5 +453,12 @@ export default class RangeSlider {
                 point.remove();
             });
         }
+
+        // Reverse changes from pointClickHandler
+        document.removeEventListener("mouseup", this.documentMouseupHandler);
+        document.removeEventListener(
+            "mousemove",
+            this.documentMouseMoveHandler
+        );
     }
 }
