@@ -429,5 +429,10 @@ export default class RangeSlider {
         // Reverse changes from initContainer
         this.container.classList.remove(containerClass);
         this.container.style.height = null;
+
+        // Reverse changes from initRail
+        if (this.rail instanceof HTMLElement) {
+            this.rail.remove();
+        }
     }
 }
