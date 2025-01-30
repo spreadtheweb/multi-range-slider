@@ -446,5 +446,12 @@ export default class RangeSlider {
         if (this.tooltip instanceof HTMLElement) {
             this.tooltip.remove();
         }
+
+        // Reverse changes from initPoints
+        if (Array.isArray(this.points)) {
+            this.points.forEach((point) => {
+                point.remove();
+            });
+        }
     }
 }
