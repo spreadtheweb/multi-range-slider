@@ -408,7 +408,7 @@ export default class RangeSlider {
      */
     getMouseRelativePosition(pageX) {
         const containerPosition = this.container.getBoundingClientRect();
-        return pageX - containerPosition.left;
+        return pageX - containerPosition.left - window.scrollX;
     }
 
     /**
