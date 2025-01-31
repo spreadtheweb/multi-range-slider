@@ -7,6 +7,8 @@
 
 import "./range-slider.css";
 
+const containerClass = "range-slider__container";
+
 export default class RangeSlider {
     /**
      * Create slider
@@ -71,7 +73,7 @@ export default class RangeSlider {
      * Draw all elements with initial positions
      */
     drawScene() {
-        this.container.classList.add("range-slider__container");
+        this.container.classList.add(containerClass);
         this.container.appendChild(this.rail);
         this.container.appendChild(this.tooltip);
 
@@ -81,7 +83,7 @@ export default class RangeSlider {
 
     generatePointPositions() {
         return this.allProps.values.map(value => {
-            var percentage = ((value - _this2.allProps.min) / (_this2.allProps.max - _this2.allProps.min)) * 100;
+            var percentage = ((value - this.allProps.min) / (this.allProps.max - this.allProps.min)) * 100;
             return Math.floor((percentage / 100) * this.container.offsetWidth);
         });
     }
@@ -406,7 +408,7 @@ export default class RangeSlider {
      */
     getMouseRelativePosition(pageX) {
         const containerPosition = this.container.getBoundingClientRect();
-        return pageX - containerPosition.left;
+        return pageX - containerPosition.left - window.scrollX;
     }
 
     /**
@@ -418,5 +420,50 @@ export default class RangeSlider {
         }
         this.changeHandlers.push(func);
         return this;
+    }
+
+    /**
+     * Destroy instance
+     */
+    destroy() {
+        // Reverse changes from initContainer
+        this.container.classList.remove(containerClass);
+        this.container.style.height = null;
+        this.container = null;
+
+        // Reverse changes from initRail
+        if (this.rail instanceof HTMLElement) {
+            this.rail.remove();
+            this.rail = null;
+        }
+
+        // Reverse changes from initTracks
+        if (Array.isArray(this.tracks)) {
+            this.tracks.forEach((track) => {
+                track.remove();
+            });
+            this.tracks = [];
+        }
+
+        // Reverse changes from initTooltip
+        if (this.tooltip instanceof HTMLElement) {
+            this.tooltip.remove();
+            this.tooltip = null;
+        }
+
+        // Reverse changes from initPoints
+        if (Array.isArray(this.points)) {
+            this.points.forEach((point) => {
+                point.remove();
+            });
+            this.points = [];
+        }
+
+        // Reverse changes from pointClickHandler
+        document.removeEventListener("mouseup", this.documentMouseupHandler);
+        document.removeEventListener(
+            "mousemove",
+            this.documentMouseMoveHandler
+        );
     }
 }
